@@ -1,0 +1,6 @@
+/* HR Auth — imports the shared auth styles and adds HR brand accent */
+@import '../../students/pages/Auth.css';
+
+.sp-auth__brand-panel--hr {
+  background: linear-gradient(135deg, #1a365d 0%, #0c1929 100%);
+}

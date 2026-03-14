@@ -1,0 +1,7 @@
+/* Coordinator Auth — imports shared auth styles + coordinator brand accent */
+@import '../../students/pages/Auth.css';
+
+/* ── Brand panel: same navy as student & HR ── */
+.sp-auth__brand-panel--coordinator {
+  background: linear-gradient(135deg, #1a365d 0%, #0c1929 100%);
+}

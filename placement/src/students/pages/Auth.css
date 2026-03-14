@@ -1,0 +1,401 @@
+/* ============================================
+   AUTH PAGES — Login & Signup
+   ============================================ */
+
+.sp-auth {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-primary);
+  padding: var(--space-4);
+}
+
+.sp-auth__container {
+  display: flex;
+  width: 100%;
+  max-width: 900px;
+  min-height: 540px;
+  background: var(--bg-card);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-xl);
+  overflow: hidden;
+}
+
+.sp-auth__container--signup {
+  max-width: 1000px;
+}
+
+/* ---- Brand panel (left) ---- */
+.sp-auth__brand-panel {
+  flex: 0 0 380px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--primary-700) 0%, var(--primary-800) 100%);
+  color: var(--text-inverse);
+  padding: var(--space-10);
+}
+
+.sp-auth__brand-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.sp-auth__brand-title {
+  font-size: var(--font-size-3xl);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  margin: var(--space-2) 0 0;
+}
+
+.sp-auth__brand-subtitle {
+  font-size: var(--font-size-base);
+  opacity: 0.8;
+  margin: 0;
+}
+
+.sp-auth__brand-features {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin-top: var(--space-6);
+}
+
+.sp-auth__brand-feature {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  font-size: var(--font-size-sm);
+  opacity: 0.85;
+}
+
+.sp-auth__brand-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+  flex-shrink: 0;
+}
+
+/* ---- Form panel (right) ---- */
+.sp-auth__form-panel {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-10);
+  overflow-y: auto;
+  max-height: 90vh;
+}
+
+.sp-auth__form {
+  width: 100%;
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.sp-auth__form-header {
+  margin-bottom: var(--space-2);
+}
+
+.sp-auth__form-title {
+  font-size: var(--font-size-2xl);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.sp-auth__form-desc {
+  color: var(--text-secondary);
+  margin: var(--space-1) 0 0;
+  font-size: var(--font-size-sm);
+}
+
+/* ---- Error banner ---- */
+.sp-auth__error {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-4);
+  background: var(--error-light);
+  color: var(--error);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  animation: fadeIn 0.2s ease;
+}
+
+/* ---- Fields ---- */
+.sp-auth__field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.sp-auth__label {
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.sp-auth__input-wrap {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  border: 1.5px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 0 var(--space-3);
+  background: var(--bg-card);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.sp-auth__input-wrap:focus-within {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-light);
+}
+
+.sp-auth__input-wrap--error {
+  border-color: var(--error);
+}
+
+.sp-auth__input-wrap--error:focus-within {
+  box-shadow: 0 0 0 3px var(--error-light);
+}
+
+.sp-auth__input-icon {
+  color: var(--text-muted);
+  flex-shrink: 0;
+}
+
+.sp-auth__input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  padding: var(--space-3) 0;
+  font-size: var(--font-size-sm);
+  color: var(--text-primary);
+  font-family: var(--font-family);
+}
+
+.sp-auth__input::placeholder {
+  color: var(--text-muted);
+}
+
+.sp-auth__select {
+  appearance: none;
+  cursor: pointer;
+}
+
+.sp-auth__toggle-pw {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  transition: color var(--transition-fast);
+}
+
+.sp-auth__toggle-pw:hover {
+  color: var(--text-secondary);
+}
+
+.sp-auth__field-error {
+  font-size: var(--font-size-xs);
+  color: var(--error);
+  font-weight: 500;
+  margin-top: 2px;
+}
+
+/* ---- Extras row (remember me / forgot password) ---- */
+.sp-auth__extras {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sp-auth__checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  cursor: pointer;
+}
+
+.sp-auth__checkbox {
+  accent-color: var(--accent);
+  width: 16px;
+  height: 16px;
+}
+
+.sp-auth__link-sm {
+  font-size: var(--font-size-sm);
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color var(--transition-fast);
+}
+
+.sp-auth__link-sm:hover {
+  color: var(--accent-hover);
+  text-decoration: underline;
+}
+
+/* ---- Submit button ---- */
+.sp-auth__btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: var(--space-3) var(--space-6);
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  font-family: var(--font-family);
+  cursor: pointer;
+  transition: background var(--transition-fast), transform var(--transition-fast);
+}
+
+.sp-auth__btn:hover:not(:disabled) {
+  background: var(--accent-hover);
+  transform: translateY(-1px);
+}
+
+.sp-auth__btn:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.sp-auth__btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* Spinner */
+.sp-auth__spinner {
+  width: 20px;
+  height: 20px;
+  border: 2.5px solid rgba(255, 255, 255, 0.3);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ---- Footer link ---- */
+.sp-auth__footer-text {
+  text-align: center;
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.sp-auth__link {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color var(--transition-fast);
+}
+
+.sp-auth__link:hover {
+  color: var(--accent-hover);
+  text-decoration: underline;
+}
+
+/* ---- Grid layout for signup ---- */
+.sp-auth__form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-4);
+}
+
+/* ---- Success card ---- */
+.sp-auth__success-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background: var(--bg-card);
+  border-radius: var(--radius-xl);
+  padding: var(--space-12) var(--space-10);
+  box-shadow: var(--shadow-xl);
+  max-width: 440px;
+  animation: fadeIn 0.3s ease;
+}
+
+.sp-auth__success-icon {
+  color: var(--success);
+  margin-bottom: var(--space-4);
+}
+
+.sp-auth__success-title {
+  font-size: var(--font-size-2xl);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 var(--space-2);
+}
+
+.sp-auth__success-desc {
+  color: var(--text-secondary);
+  margin: 0 0 var(--space-8);
+  font-size: var(--font-size-sm);
+  line-height: 1.6;
+}
+
+/* ---- Animations ---- */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 768px) {
+  .sp-auth__container {
+    flex-direction: column;
+    max-width: 480px;
+  }
+
+  .sp-auth__brand-panel {
+    flex: none;
+    padding: var(--space-8) var(--space-6);
+  }
+
+  .sp-auth__brand-features {
+    display: none;
+  }
+
+  .sp-auth__form-panel {
+    padding: var(--space-6);
+    max-height: none;
+  }
+
+  .sp-auth__form-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+}
+
+@media (max-width: 480px) {
+  .sp-auth {
+    padding: 0;
+  }
+
+  .sp-auth__container {
+    border-radius: 0;
+    min-height: 100vh;
+  }
+}

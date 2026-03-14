@@ -1,0 +1,17 @@
+/* Coordinator Navbar — inherits all sp-navbar styles from student Navbar.css */
+@import '../../students/components/Navbar.css';
+
+.sp-navbar__brand-badge--coord {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px 8px;
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  background: #8b5cf6;
+  color: #fff;
+  border-radius: var(--radius-full);
+  margin-left: var(--space-2);
+}

@@ -1,0 +1,553 @@
+/* ============================================
+   COORDINATOR DRIVES PAGE
+   ============================================ */
+
+.coord-drives {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: var(--space-8) var(--space-6);
+  padding-top: calc(var(--navbar-height) + var(--space-8));
+}
+
+/* ── Header ── */
+.coord-drives__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: var(--space-6);
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}
+
+.coord-drives__title {
+  font-size: var(--font-size-2xl);
+  font-weight: 800;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.coord-drives__subtitle {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  margin: var(--space-1) 0 0;
+}
+
+/* ── Status filter chips ── */
+.coord-drives__stats {
+  display: flex;
+  gap: var(--space-3);
+  margin-bottom: var(--space-5);
+  flex-wrap: wrap;
+}
+
+.coord-drives__stat-chip {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-full);
+  padding: var(--space-2) var(--space-4);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  font-size: var(--font-size-sm);
+}
+
+.coord-drives__stat-chip:hover {
+  border-color: #8b5cf6;
+  box-shadow: 0 0 0 2px rgba(139, 92, 246, 0.12);
+}
+
+.coord-drives__stat-chip--active {
+  border-color: #8b5cf6;
+  background: #f5f3ff;
+}
+
+.coord-drives__stat-count {
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+/* ── Status Badges ── */
+.drive-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.drive-badge--upcoming  { background: #dbeafe; color: #1d4ed8; }
+.drive-badge--ongoing   { background: #d1fae5; color: #065f46; }
+.drive-badge--completed { background: #f3f4f6; color: #374151; }
+.drive-badge--cancelled { background: #fee2e2; color: #991b1b; }
+
+/* ── Search ── */
+.coord-drives__search-wrap {
+  position: relative;
+  margin-bottom: var(--space-6);
+}
+
+.coord-drives__search-icon {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-muted);
+  pointer-events: none;
+}
+
+.coord-drives__search {
+  width: 100%;
+  padding: 10px 14px 10px 40px;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  font-size: var(--font-size-sm);
+  background: var(--bg-card);
+  color: var(--text-primary);
+  transition: border-color var(--transition-fast);
+  box-sizing: border-box;
+}
+
+.coord-drives__search:focus {
+  outline: none;
+  border-color: #8b5cf6;
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.12);
+}
+
+.coord-drives__search-clear {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-muted);
+  padding: 2px;
+  display: flex;
+  align-items: center;
+}
+
+/* ── Drive List Grid ── */
+.coord-drives__list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(460px, 1fr));
+  gap: var(--space-5);
+}
+
+/* ── Drive Card ── */
+.coord-drive-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-xl);
+  padding: var(--space-6);
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow var(--transition-base), transform var(--transition-fast);
+}
+
+.coord-drive-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-1px);
+}
+
+.coord-drive-card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--space-3);
+  margin-bottom: var(--space-4);
+  flex-wrap: wrap;
+}
+
+.coord-drive-card__title-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex: 1;
+  flex-wrap: wrap;
+}
+
+.coord-drive-card__icon {
+  color: #8b5cf6;
+  flex-shrink: 0;
+}
+
+.coord-drive-card__title {
+  font-size: var(--font-size-base);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.coord-drive-card__actions {
+  display: flex;
+  gap: var(--space-2);
+  flex-shrink: 0;
+}
+
+/* ── Company tags ── */
+.coord-drive-card__companies {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-bottom: var(--space-3);
+}
+
+.coord-drive-card__company-badge {
+  background: #f5f3ff;
+  color: #7c3aed;
+  border: 1px solid #e9d5ff;
+  border-radius: var(--radius-sm);
+  padding: 2px 10px;
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+}
+
+/* ── Description ── */
+.coord-drive-card__desc {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  margin: 0 0 var(--space-4);
+  line-height: 1.6;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* ── Meta row ── */
+.coord-drive-card__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-bottom: var(--space-3);
+}
+
+.coord-drive-card__meta-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: var(--font-size-xs);
+  color: var(--text-secondary);
+}
+
+.coord-drive-card__meta-item--warn {
+  color: #d97706;
+  font-weight: 600;
+}
+
+/* ── Department badges ── */
+.coord-drive-card__depts {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2);
+  padding-top: var(--space-3);
+  border-top: 1px solid var(--border-light);
+  color: var(--text-muted);
+}
+
+.coord-drive-card__dept-badge {
+  background: var(--gray-100);
+  color: var(--text-secondary);
+  border-radius: var(--radius-sm);
+  padding: 2px 8px;
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.coord-drive-card__depts--all {
+  color: var(--success);
+}
+
+.coord-drive-card__dept-all {
+  font-size: var(--font-size-xs);
+  font-weight: 500;
+  color: var(--success);
+}
+
+/* ── Empty State ── */
+.coord-drives__empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-16) var(--space-6);
+  text-align: center;
+  color: var(--text-muted);
+  gap: var(--space-4);
+}
+
+.coord-drives__empty h3 {
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.coord-drives__empty p {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  max-width: 380px;
+  margin: 0;
+}
+
+/* ── Button variants ── */
+.coord-btn--xs {
+  padding: 4px 10px;
+  font-size: var(--font-size-xs);
+  gap: 4px;
+  border-radius: var(--radius-md);
+}
+
+.coord-btn--ghost {
+  background: transparent;
+  color: var(--text-secondary);
+  border: 1px solid transparent;
+}
+
+.coord-btn--ghost:hover {
+  background: var(--gray-100);
+  color: var(--text-primary);
+}
+
+.coord-btn--danger-ghost {
+  background: transparent;
+  color: #dc2626;
+  border: 1px solid transparent;
+}
+
+.coord-btn--danger-ghost:hover {
+  background: #fee2e2;
+}
+
+.coord-btn--danger {
+  background: #dc2626;
+  color: #fff;
+  border: none;
+}
+
+.coord-btn--danger:hover {
+  background: #b91c1c;
+}
+
+/* ── Modal Overlay ── */
+.coord-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.55);
+  backdrop-filter: blur(2px);
+  z-index: 1000;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: var(--space-6);
+  overflow-y: auto;
+}
+
+.coord-modal {
+  background: var(--bg-card);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-xl);
+  width: 100%;
+  max-width: 680px;
+  margin: auto;
+}
+
+.coord-modal--sm {
+  max-width: 430px;
+}
+
+/* ── Modal Header ── */
+.coord-modal__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-5) var(--space-6);
+  border-bottom: 1px solid var(--border-light);
+}
+
+.coord-modal__title {
+  font-size: var(--font-size-lg);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.coord-modal__close {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-muted);
+  padding: var(--space-1);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  transition: color var(--transition-fast), background var(--transition-fast);
+}
+
+.coord-modal__close:hover {
+  background: var(--gray-100);
+  color: var(--text-primary);
+}
+
+/* ── Modal Body ── */
+.coord-modal__body {
+  padding: var(--space-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+/* ── Form Row & Groups ── */
+.coord-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-4);
+}
+
+.coord-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.coord-form-group--full {
+  grid-column: 1 / -1;
+}
+
+.coord-form-label {
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.coord-form-hint {
+  font-weight: 400;
+  color: var(--text-muted);
+  font-size: var(--font-size-xs);
+}
+
+.coord-form-input {
+  padding: 10px 14px;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-sm);
+  color: var(--text-primary);
+  background: var(--bg-primary);
+  width: 100%;
+  box-sizing: border-box;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+  font-family: inherit;
+}
+
+.coord-form-input:focus {
+  outline: none;
+  border-color: #8b5cf6;
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.12);
+}
+
+.coord-form-textarea {
+  resize: vertical;
+  min-height: 100px;
+  line-height: 1.6;
+}
+
+/* ── Departments checkbox grid ── */
+.coord-form-checkbox-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: var(--space-2) var(--space-4);
+  background: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+}
+
+.coord-form-checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--font-size-sm);
+  color: var(--text-primary);
+  cursor: pointer;
+}
+
+.coord-form-checkbox-label input[type='checkbox'] {
+  accent-color: #8b5cf6;
+  width: 15px;
+  height: 15px;
+}
+
+/* ── Form Error ── */
+.coord-form-error {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  background: #fee2e2;
+  color: #991b1b;
+  border: 1px solid #fecaca;
+  border-radius: var(--radius-md);
+  padding: var(--space-3) var(--space-4);
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+}
+
+/* ── Modal Footer ── */
+.coord-modal__footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--space-3);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--border-light);
+  margin-top: var(--space-2);
+}
+
+/* ── Delete confirm ── */
+.coord-delete-confirm__text {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+/* ── Spin ── */
+.spin {
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* ── Responsive ── */
+@media (max-width: 640px) {
+  .coord-drives {
+    padding: var(--space-4);
+    padding-top: calc(var(--navbar-height) + var(--space-4));
+  }
+
+  .coord-drives__list {
+    grid-template-columns: 1fr;
+  }
+
+  .coord-form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .coord-modal-overlay {
+    padding: var(--space-3);
+    align-items: flex-start;
+  }
+
+  .coord-modal__body {
+    padding: var(--space-4);
+  }
+
+  .coord-drive-card__header {
+    flex-direction: column;
+  }
+}

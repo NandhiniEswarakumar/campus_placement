@@ -1,0 +1,236 @@
+@import '../students/styles/variables.css';
+
+/* ===== Page Layout ===== */
+.home {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+  padding: 3rem 1.5rem;
+}
+
+.home__container {
+  max-width: 960px;
+  width: 100%;
+}
+
+/* ===== Header ===== */
+.home__header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.home__logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 72px;
+  height: 72px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, #3b82f6, #6366f1);
+  color: #fff;
+  margin-bottom: 1.25rem;
+  box-shadow: 0 8px 32px rgba(59, 130, 246, 0.35);
+}
+
+.home__title {
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: #f8fafc;
+  letter-spacing: -0.5px;
+  margin: 0;
+}
+
+.home__subtitle {
+  font-size: 1rem;
+  color: #94a3b8;
+  margin: 0.25rem 0 0;
+  font-weight: 500;
+}
+
+.home__desc {
+  font-size: 1.125rem;
+  color: #cbd5e1;
+  margin: 1.25rem 0 0;
+}
+
+/* ===== Role Cards Grid ===== */
+.home__roles {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+/* ===== Role Card Base ===== */
+.home__role-card {
+  background: rgba(30, 41, 59, 0.7);
+  border: 1px solid rgba(148, 163, 184, 0.12);
+  border-radius: 16px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.home__role-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+}
+
+.home__role-card--disabled {
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+/* ===== Icon Ring ===== */
+.home__role-icon-wrap {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+}
+
+/* Color variants — icon + accent border */
+.home__role-card--blue .home__role-icon-wrap {
+  background: rgba(59, 130, 246, 0.15);
+  color: #60a5fa;
+}
+.home__role-card--blue:hover {
+  border-color: rgba(59, 130, 246, 0.4);
+}
+
+.home__role-card--emerald .home__role-icon-wrap {
+  background: rgba(16, 185, 129, 0.15);
+  color: #34d399;
+}
+.home__role-card--emerald:hover {
+  border-color: rgba(16, 185, 129, 0.4);
+}
+
+.home__role-card--violet .home__role-icon-wrap {
+  background: rgba(139, 92, 246, 0.15);
+  color: #a78bfa;
+}
+.home__role-card--violet:hover {
+  border-color: rgba(139, 92, 246, 0.4);
+}
+
+.home__role-card--amber .home__role-icon-wrap {
+  background: rgba(245, 158, 11, 0.15);
+  color: #fbbf24;
+}
+.home__role-card--amber:hover {
+  border-color: rgba(245, 158, 11, 0.4);
+}
+
+/* ===== Card Content ===== */
+.home__role-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #f1f5f9;
+  margin: 0 0 0.5rem;
+}
+
+.home__role-desc {
+  font-size: 0.875rem;
+  color: #94a3b8;
+  line-height: 1.6;
+  margin: 0 0 1.5rem;
+  flex: 1;
+}
+
+.home__coming-soon {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #64748b;
+  background: rgba(100, 116, 139, 0.15);
+  padding: 0.35rem 0.85rem;
+  border-radius: 20px;
+  align-self: flex-start;
+}
+
+/* ===== Action Buttons ===== */
+.home__role-actions {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.home__role-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  padding: 0.6rem 1.25rem;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.home__role-btn--primary {
+  background: #3b82f6;
+  color: #fff;
+}
+.home__role-btn--primary:hover {
+  background: #2563eb;
+  transform: translateY(-1px);
+}
+
+/* Color-specific primary buttons */
+.home__role-card--emerald .home__role-btn--primary {
+  background: #10b981;
+}
+.home__role-card--emerald .home__role-btn--primary:hover {
+  background: #059669;
+}
+
+.home__role-card--violet .home__role-btn--primary {
+  background: #8b5cf6;
+}
+.home__role-card--violet .home__role-btn--primary:hover {
+  background: #7c3aed;
+}
+
+.home__role-btn--outline {
+  background: transparent;
+  color: #cbd5e1;
+  border: 1px solid rgba(148, 163, 184, 0.25);
+}
+.home__role-btn--outline:hover {
+  background: rgba(148, 163, 184, 0.08);
+  border-color: rgba(148, 163, 184, 0.45);
+}
+
+/* ===== Footer ===== */
+.home__footer {
+  text-align: center;
+  color: #475569;
+  font-size: 0.8rem;
+  margin-top: 3rem;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 680px) {
+  .home {
+    padding: 2rem 1rem;
+  }
+
+  .home__roles {
+    grid-template-columns: 1fr;
+  }
+
+  .home__title {
+    font-size: 1.75rem;
+  }
+
+  .home__role-card {
+    padding: 1.5rem;
+  }
+}

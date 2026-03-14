@@ -1,0 +1,221 @@
+/* ============================================
+   NAVBAR
+   ============================================ */
+
+.sp-navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--primary-700);
+  box-shadow: var(--shadow-md);
+}
+
+.sp-navbar__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--space-6);
+  height: var(--navbar-height);
+}
+
+/* Brand */
+.sp-navbar__brand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--text-inverse);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: var(--font-size-xl);
+  transition: opacity var(--transition-fast);
+}
+
+.sp-navbar__brand:hover {
+  opacity: 0.9;
+}
+
+.sp-navbar__brand-text {
+  letter-spacing: -0.02em;
+}
+
+/* Desktop links */
+.sp-navbar__links {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.sp-navbar__link {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-md);
+  color: rgba(255, 255, 255, 0.75);
+  text-decoration: none;
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  transition: all var(--transition-fast);
+}
+
+.sp-navbar__link:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.sp-navbar__link--active {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* Right section */
+.sp-navbar__right {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.sp-navbar__user {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.sp-navbar__avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+
+.sp-navbar__user-name {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+}
+
+.sp-navbar__logout {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: var(--radius-md);
+  background: transparent;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: var(--font-size-sm);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.sp-navbar__logout:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.35);
+}
+
+/* Mobile toggle */
+.sp-navbar__mobile-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  padding: var(--space-1);
+}
+
+/* Mobile menu */
+.sp-navbar__mobile-menu {
+  display: none;
+  background: var(--primary-700);
+  padding: var(--space-4) var(--space-6) var(--space-6);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  animation: slideDown 0.2s ease;
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.sp-navbar__mobile-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.sp-navbar__mobile-link {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-md);
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  font-size: var(--font-size-base);
+  font-weight: 500;
+  transition: all var(--transition-fast);
+}
+
+.sp-navbar__mobile-link:hover,
+.sp-navbar__mobile-link--active {
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+}
+
+.sp-navbar__mobile-logout {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  width: 100%;
+  margin-top: var(--space-4);
+  padding: var(--space-3) var(--space-4);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: var(--radius-md);
+  background: transparent;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: var(--font-size-base);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.sp-navbar__mobile-logout:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 768px) {
+  .sp-navbar__links,
+  .sp-navbar__user,
+  .sp-navbar__logout {
+    display: none;
+  }
+
+  .sp-navbar__mobile-toggle {
+    display: flex;
+  }
+
+  .sp-navbar__mobile-menu {
+    display: block;
+  }
+
+  .sp-navbar__inner {
+    padding: 0 var(--space-4);
+  }
+}

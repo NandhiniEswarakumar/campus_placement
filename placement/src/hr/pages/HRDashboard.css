@@ -1,0 +1,338 @@
+/* ============================================
+   HR DASHBOARD
+   ============================================ */
+
+.hr-page {
+  min-height: 100vh;
+  background: var(--bg-primary);
+}
+
+.hr-dashboard {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: var(--space-8) var(--space-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+
+/* ---- Welcome ---- */
+.hr-dashboard__welcome {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+}
+
+.hr-dashboard__title {
+  font-size: var(--font-size-2xl);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.hr-dashboard__name {
+  color: var(--accent);
+}
+
+.hr-dashboard__subtitle {
+  color: var(--text-secondary);
+  font-size: var(--font-size-sm);
+  margin: var(--space-1) 0 0;
+}
+
+.hr-dashboard__quick-actions {
+  display: flex;
+  gap: var(--space-3);
+}
+
+.hr-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-5);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  border: none;
+  font-family: var(--font-family);
+}
+
+.hr-btn--primary {
+  background: var(--accent);
+  color: #fff;
+}
+
+.hr-btn--primary:hover {
+  background: var(--accent-hover);
+  transform: translateY(-1px);
+}
+
+.hr-btn--outline {
+  background: transparent;
+  color: var(--accent);
+  border: 1.5px solid var(--accent);
+}
+
+.hr-btn--outline:hover {
+  background: var(--accent-light);
+}
+
+.hr-btn--sm {
+  padding: var(--space-1) var(--space-3);
+  font-size: var(--font-size-xs);
+}
+
+.hr-btn--danger {
+  background: var(--error);
+  color: #fff;
+}
+
+.hr-btn--danger:hover {
+  background: #b91c1c;
+}
+
+.hr-btn--success {
+  background: var(--success);
+  color: #fff;
+}
+
+.hr-btn--success:hover {
+  background: #047857;
+}
+
+/* ---- Stats ---- */
+.hr-dashboard__stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-4);
+}
+
+/* ---- Grid ---- */
+.hr-dashboard__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-6);
+}
+
+/* ---- Section ---- */
+.hr-dashboard__section {
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  box-shadow: var(--shadow-sm);
+}
+
+.hr-dashboard__section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-5);
+}
+
+.hr-dashboard__section-title {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--font-size-lg);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.hr-dashboard__see-all {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--accent);
+  text-decoration: none;
+  transition: gap var(--transition-fast);
+}
+
+.hr-dashboard__see-all:hover {
+  gap: 8px;
+}
+
+/* ---- Mini job card ---- */
+.hr-dashboard__job-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.hr-mini-job-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding: var(--space-4);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-fast);
+}
+
+.hr-mini-job-card:hover {
+  border-color: var(--primary-200);
+  box-shadow: var(--shadow-xs);
+}
+
+.hr-mini-job-card__title {
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0 0 var(--space-1);
+}
+
+.hr-mini-job-card__meta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  font-size: var(--font-size-xs);
+  color: var(--text-secondary);
+}
+
+.hr-mini-job-card__meta span {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.hr-mini-job-card__type {
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
+  white-space: nowrap;
+}
+
+.hr-mini-job-card__type--fulltime { background: #dbeafe; color: #1d4ed8; }
+.hr-mini-job-card__type--internship { background: #d1fae5; color: #059669; }
+.hr-mini-job-card__type--contract { background: #fef3c7; color: #b45309; }
+.hr-mini-job-card__type--parttime { background: #ede9fe; color: #7c3aed; }
+
+/* ---- Mini app card ---- */
+.hr-dashboard__app-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.hr-mini-app-card {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-fast);
+}
+
+.hr-mini-app-card:hover {
+  border-color: var(--primary-200);
+  box-shadow: var(--shadow-xs);
+}
+
+.hr-mini-app-card__avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-full);
+  background: var(--primary-100);
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: var(--font-size-sm);
+  flex-shrink: 0;
+}
+
+.hr-mini-app-card__info {
+  flex: 1;
+  min-width: 0;
+}
+
+.hr-mini-app-card__name {
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.hr-mini-app-card__job {
+  font-size: var(--font-size-xs);
+  color: var(--text-secondary);
+  margin: 2px 0 0;
+}
+
+.hr-mini-app-card__right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+}
+
+.hr-mini-app-card__date {
+  font-size: var(--font-size-xs);
+  color: var(--text-muted);
+}
+
+/* ---- Status badge ---- */
+.hr-status-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 10px;
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.hr-status--new { background: #dbeafe; color: #1d4ed8; }
+.hr-status--reviewed { background: #fef3c7; color: #b45309; }
+.hr-status--accepted { background: #d1fae5; color: #059669; }
+.hr-status--rejected { background: #fee2e2; color: #dc2626; }
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 1024px) {
+  .hr-dashboard__stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .hr-dashboard__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .hr-dashboard__welcome {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .hr-dashboard__quick-actions {
+    width: 100%;
+  }
+
+  .hr-dashboard__quick-actions .hr-btn {
+    flex: 1;
+    justify-content: center;
+  }
+
+  .hr-mini-job-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-2);
+  }
+
+  .hr-mini-job-card__meta {
+    flex-wrap: wrap;
+  }
+}
