@@ -14,7 +14,20 @@ const { startDeadlineScheduler } = require('./scheduler');
 const app = express();
 
 // Middleware
-app.use(cors({ origin: 'https://campus-placement-tau.vercel.app', credentials: true }));
+const allowedOrigins = [
+  'https://campus-placement-tau.vercel.app',
+  /^https:\/\/campus-placement[a-z0-9-]*\.vercel\.app$/,
+];
+app.use(cors({
+  origin: (origin, callback) => {
+    if (!origin) return callback(null, true);
+    const allowed = allowedOrigins.some((o) =>
+      typeof o === 'string' ? o === origin : o.test(origin)
+    );
+    callback(allowed ? null : new Error('Not allowed by CORS'), allowed);
+  },
+  credentials: true,
+}));
 app.use(express.json());
 
 // Serve uploaded files
