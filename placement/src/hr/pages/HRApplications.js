@@ -348,7 +348,7 @@ const HRApplications = () => {
                 <div className="hr-app-detail__section">
                   <h4 className="hr-app-detail__section-title"><FileText size={16} /> Resume</h4>
                   <a
-                    href={`http://localhost:5000${selectedApp.resumePath}`}
+                    href={`https://campus-placement-23jg.onrender.com${selectedApp.resumePath}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="hr-btn hr-btn--outline"

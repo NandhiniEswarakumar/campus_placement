@@ -477,7 +477,7 @@ export default function CoordinatorApplications() {
                   <div className="coord-app__modal-actions">
                     {selectedApp.resumePath && (
                       <a
-                        href={`http://localhost:5000${selectedApp.resumePath}`}
+                        href={`https://campus-placement-23jg.onrender.com${selectedApp.resumePath}`}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="coord-btn coord-btn--outline coord-btn--sm"

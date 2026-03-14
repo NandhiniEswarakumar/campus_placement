@@ -1,4 +1,4 @@
-const API_BASE = 'http://localhost:5000/api';
+const API_BASE = 'https://campus-placement-23jg.onrender.com/api';
 
 const hrApi = {
   async post(endpoint, data) {
