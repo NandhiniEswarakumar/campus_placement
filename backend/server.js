@@ -3,21 +3,21 @@ const cors = require('cors');
 const dotenv = require('dotenv');
 const connectDB = require('./config/db');
 
-// Load env vars
 dotenv.config();
 
-// Connect to MongoDB
 connectDB();
 
 const { startDeadlineScheduler } = require('./scheduler');
 
 const app = express();
 
-// Middleware
 const allowedOrigins = [
+  process.env.FRONTEND_URL,
   'https://campus-placement-tau.vercel.app',
   /^https:\/\/campus-placement[a-z0-9-]*\.vercel\.app$/,
-];
+  'http://localhost:3000',
+  'http://127.0.0.1:3000',
+].filter(Boolean);
 app.use(cors({
   origin: (origin, callback) => {
     if (!origin) return callback(null, true);
