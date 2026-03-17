@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import {
-  GraduationCap, Briefcase, ShieldCheck, Settings,
+  GraduationCap, Briefcase, ShieldCheck,
   ArrowRight,
 } from 'lucide-react';
 import './Home.css';
@@ -33,16 +33,6 @@ const roles = [
     color: 'violet',
     loginPath: '/coordinator/login',
     signupPath: '/coordinator/signup',
-  },
-  {
-    id: 'admin',
-    title: 'Admin',
-    description: 'Full system access — manage users, settings, reports, and platform configuration.',
-    icon: Settings,
-    color: 'amber',
-    loginPath: '#',
-    signupPath: '#',
-    comingSoon: true,
   },
 ];
 
